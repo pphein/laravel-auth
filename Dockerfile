@@ -1,3 +1,11 @@
+# Use the Node.js image to build frontend assets
+FROM node:18 as node-builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+
 # Use an official PHP image
 FROM php:8.3-fpm
 
@@ -14,6 +22,9 @@ RUN apt-get update && apt-get install -y \
 RUN apt-get install libpq-dev
 
 RUN docker-php-ext-install pdo_pgsql pgsql
+
+# Copy built assets
+COPY --from=node-builder /app/public/build public/build
 
 # Install Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
