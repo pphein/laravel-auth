@@ -33,7 +33,7 @@ RUN docker-php-ext-install pdo_pgsql pgsql
 COPY --from=node-builder /app/public/build public/build
 COPY --from=node-builder /app/public/build /var/www/html/public/build
 
-COPY /var/www/html/public/build/.vite/manifest.json /var/www/html/public/build
+COPY  --from=node-builder app/public/build/.vite/manifest.json /var/www/html/public/build
 
 # Install Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
