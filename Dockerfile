@@ -29,7 +29,7 @@ RUN composer install --optimize-autoloader --no-dev
 
 # Run artisan commands
 RUN php artisan config:clear
-RUN php artisan cache:clear
+# RUN php artisan cache:clear
 RUN php artisan migrate --force
 
 # Set permissions
