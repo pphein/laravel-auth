@@ -11,9 +11,7 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     && docker-php-ext-install pdo pdo_mysql zip
 
-RUN apt-get install postgresql postgresql-contrib
-
-RUN apt-get install php-pgsql
+RUN apt-get install livpq-dev
 
 RUN docker-php-ext-install pdo_pgsql pgsql
 
