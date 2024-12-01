@@ -11,6 +11,10 @@ RUN npm run build
 # Use an official PHP image
 FROM php:8.3-fpm
 
+# Install Node.js
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+RUN apt-get install -y nodejs
+
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
     curl \
@@ -44,6 +48,10 @@ RUN composer install --optimize-autoloader --no-dev
 RUN php artisan config:clear
 # RUN php artisan cache:clear
 RUN php artisan migrate --force
+
+# Install Node.js dependencies
+RUN npm install
+RUN npm run build
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
