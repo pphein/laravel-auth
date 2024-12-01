@@ -3,6 +3,8 @@ FROM node:18 as node-builder
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
+RUN npm install vite
+RUN npm install laravel-vite-plugin
 COPY . .
 RUN npm run build
 
