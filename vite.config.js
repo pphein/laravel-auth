@@ -7,14 +7,14 @@ export default defineConfig({
             input: [
                 'resources/css/app.css',
                 'resources/js/app.js',
-                'resources/sass/app.scss'
+                'resources/sass/app.scss',
             ],
             refresh: true,
         }),
     ],
     build: {
         manifest: true,
-        outDir: 'public/build',
+        outDir: 'public/build', // Ensure the manifest.json is in public/build
         rollupOptions: {
             output: {
                 chunkFileNames: 'assets/[name]-[hash].js',
