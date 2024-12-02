@@ -68,10 +68,6 @@ RUN ls -alh public/build/.vite
 RUN mv public/build/.vite/manifest.json public/build/manifest.json
 RUN ls public/build/assets
 
-RUN php artisan config:cache
-RUN php artisan route:cache
-RUN php artisan view:cache
-
 # Expose the application port
 EXPOSE 9000
 
