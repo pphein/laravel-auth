@@ -1,12 +1,12 @@
-# Use the Node.js image to build frontend assets
-FROM node:18 as node-builder
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-RUN npm install vite
-RUN npm install laravel-vite-plugin
-COPY . .
-RUN npm run build
+# # Use the Node.js image to build frontend assets
+# FROM node:18 as node-builder
+# WORKDIR /app
+# COPY package*.json ./
+# RUN npm install
+# RUN npm install vite
+# RUN npm install laravel-vite-plugin
+# COPY . .
+# RUN npm run build
 
 # Use an official PHP image
 FROM php:8.3-fpm
@@ -29,11 +29,11 @@ RUN apt-get install libpq-dev
 
 RUN docker-php-ext-install pdo_pgsql pgsql
 
-# Copy built assets
-COPY --from=node-builder /app/public/build public/build
-COPY --from=node-builder /app/public/build /var/www/html/public/build
+# # Copy built assets
+# COPY --from=node-builder /app/public/build public/build
+# COPY --from=node-builder /app/public/build /var/www/html/public/build
 
-COPY  --from=node-builder app/public/build/.vite/manifest.json /var/www/html/public/build
+# COPY  --from=node-builder app/public/build/.vite/manifest.json /var/www/html/public/build
 
 # Install Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
@@ -54,6 +54,8 @@ RUN php artisan migrate --force
 
 # Install Node.js dependencies
 RUN npm install
+RUN npm install vite
+RUN npm install laravel-vite-plugin
 RUN npm run build
 
 # Set permissions
