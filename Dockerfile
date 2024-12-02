@@ -64,6 +64,7 @@ RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cac
 
 RUN ls
 RUN ls public/build
+RUN ls public/build/assets
 
 # Expose the application port
 EXPOSE 9000
