@@ -63,6 +63,7 @@ RUN npm run build
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
 RUN ls
+COPY public/build/.vite/manifest.json public/build/manifest.json
 RUN ls public/build
 RUN ls public/build/assets
 
