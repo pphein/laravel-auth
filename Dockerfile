@@ -55,7 +55,7 @@ RUN php artisan migrate --force
 # Install Node.js dependencies
 RUN npm install
 RUN npm install vite
-RUN npm install laravel-vite-plugin
+RUN npm install laravel-vite-plugin --force
 RUN npx --version
 RUN npm run build
 
