@@ -63,6 +63,7 @@ RUN npm run build
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
 RUN ls
+RUN ls public/build
 
 # Expose the application port
 EXPOSE 9000
