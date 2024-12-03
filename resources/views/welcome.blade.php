@@ -109,10 +109,10 @@
 <body>
     <div class="main">
         <div class="top-corner">
-            <img  src="./path824.png" alt="">
+            <img  src="{{ asset('storage/path824.png') }}" alt="">
         </div>
         <div class="bottom-corner">
-            <img  src="bottom-corner.png" alt="">
+            <img  src="{{ asset('storage/bottom-corner.png') }}" alt="">
         </div>
         
         <div class="container">

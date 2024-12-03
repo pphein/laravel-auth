@@ -51,6 +51,7 @@ RUN composer install --optimize-autoloader --no-dev
 RUN php artisan config:clear
 # RUN php artisan cache:clear
 RUN php artisan migrate --force
+RUN php artisan storage:link
 
 # Install Node.js dependencies
 RUN npm install
