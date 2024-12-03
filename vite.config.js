@@ -12,23 +12,28 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    // build: {
+    //     outDir: 'public/build', // Ensure the manifest.json is in public/build
+    //     manifest: true,
+    //     rollupOptions: {
+    //         output: {
+    //             chunkFileNames: 'assets/[name]-[hash].js',
+    //             entryFileNames: 'assets/[name]-[hash].js',
+    //             assetFileNames: 'assets/[name]-[hash].[ext]',
+    //         },
+    //     },
+    // },
+    // server: {
+    //     https: true,
+    //     host: '0.0.0.0',
+    //     hmr: {
+    //         host: 'laravel-auth-tfta.onrender.com',
+    //         protocol: 'wss', // WebSocket over HTTPS
+    //     },
+    // },
     build: {
-        outDir: 'public/build', // Ensure the manifest.json is in public/build
-        manifest: true,
-        rollupOptions: {
-            output: {
-                chunkFileNames: 'assets/[name]-[hash].js',
-                entryFileNames: 'assets/[name]-[hash].js',
-                assetFileNames: 'assets/[name]-[hash].[ext]',
-            },
-        },
-    },
-    server: {
-        https: true,
-        host: '0.0.0.0',
-        hmr: {
-            host: 'laravel-auth-tfta.onrender.com',
-            protocol: 'wss', // WebSocket over HTTPS
-        },
-    },
+        outDir: 'build',
+       publicDir: 'build',
+        manifest: true, 
+    }
 });
