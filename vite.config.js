@@ -30,10 +30,5 @@ export default defineConfig({
     //         host: 'laravel-auth-tfta.onrender.com',
     //         protocol: 'wss', // WebSocket over HTTPS
     //     },
-    // },
-    build: {
-        outDir: 'build',
-       publicDir: 'build',
-        manifest: true, 
-    }
+    // }
 });

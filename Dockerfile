@@ -65,7 +65,7 @@ RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cac
 RUN ls
 RUN ls -alh public/build
 RUN ls -alh public/build/.vite
-RUN mv public/build/.vite/manifest.json public/build/manifest.json
+# RUN mv public/build/.vite/manifest.json public/build/manifest.json
 RUN ls public/build/assets
 
 # Expose the application port
