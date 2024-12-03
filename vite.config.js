@@ -23,12 +23,11 @@ export default defineConfig({
     //         },
     //     },
     // },
-    // server: {
-    //     https: true,
-    //     host: '0.0.0.0',
-    //     hmr: {
-    //         host: 'laravel-auth-tfta.onrender.com',
-    //         protocol: 'wss', // WebSocket over HTTPS
-    //     },
-    // }
+    server: {
+        https: true,
+        hmr: {
+            host: 'laravel-auth-tfta.onrender.com',
+            protocol: 'wss', // WebSocket over HTTPS
+        },
+    }
 });
