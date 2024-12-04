@@ -127,7 +127,7 @@
                 <span class="librix">i</span>
             </div>
             <div class="sign-in">
-                <button class="sign-in-btn"><a href="#">Get Started</a></button>
+                <button class="sign-in-btn"><a href="{{ route('books.index') }}">Get Started</a></button>
             </div>
         </div>
     </div>    

@@ -8,6 +8,7 @@ export default defineConfig({
                 'resources/css/app.css',
                 'resources/js/app.js',
                 'resources/sass/app.scss',
+                'resources/css/custom.css'
             ],
             refresh: true,
         }),
@@ -23,11 +24,11 @@ export default defineConfig({
     //         },
     //     },
     // },
-    server: {
-        https: true,
-        hmr: {
-            host: 'laravel-auth-tfta.onrender.com',
-            protocol: 'wss', // WebSocket over HTTPS
-        },
-    }
+    // server: {
+    //     https: true,
+    //     hmr: {
+    //         host: 'laravel-auth-tfta.onrender.com',
+    //         protocol: 'wss', // WebSocket over HTTPS
+    //     },
+    // }
 });
