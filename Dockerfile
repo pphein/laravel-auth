@@ -23,6 +23,11 @@ RUN apt-get update && apt-get install -y \
     git \
     libpq-dev \
     libzip-dev \
+    libfreetype6-dev \
+    libjpeg62-turbo-dev \
+    libpng-dev \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install gd \
     && docker-php-ext-install pdo pdo_mysql zip
 
 RUN apt-get install libpq-dev
