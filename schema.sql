@@ -98,3 +98,41 @@ CREATE TABLE jobs (
   available_at INTEGER NOT NULL,
   created_at INTEGER NOT NULL
 );
+
+CREATE TABLE password_reset_tokens (
+  email VARCHAR(255) NOT NULL,
+  token VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP NULL DEFAULT NULL,
+  PRIMARY KEY (email)
+);
+
+CREATE TABLE personal_access_tokens (
+  id BIGSERIAL PRIMARY KEY,
+  tokenable_type VARCHAR(255) NOT NULL,
+  tokenable_id BIGINT NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  token VARCHAR(64) NOT NULL UNIQUE,
+  abilities TEXT,
+  last_used_at TIMESTAMP NULL DEFAULT NULL,
+  expires_at TIMESTAMP NULL DEFAULT NULL,
+  created_at TIMESTAMP NULL DEFAULT NULL,
+  updated_at TIMESTAMP NULL DEFAULT NULL,
+  CONSTRAINT personal_access_tokens_tokenable_type_tokenable_id_index
+    UNIQUE (tokenable_type, tokenable_id)
+);
+
+CREATE TABLE users (
+  id BIGSERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  email_verified_at TIMESTAMP NULL DEFAULT NULL,
+  password VARCHAR(255) NOT NULL,
+  two_factor_secret TEXT,
+  two_factor_recovery_codes TEXT,
+  two_factor_confirmed_at TIMESTAMP NULL DEFAULT NULL,
+  remember_token VARCHAR(100) DEFAULT NULL,
+  current_team_id BIGINT DEFAULT NULL,
+  profile_photo_path VARCHAR(2048) DEFAULT NULL,
+  created_at TIMESTAMP NULL DEFAULT NULL,
+  updated_at TIMESTAMP NULL DEFAULT NULL
+);
