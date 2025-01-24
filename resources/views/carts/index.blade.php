@@ -22,5 +22,5 @@
             @endforeach
         </tbody>
     </table>
-    <div>Total: ${{ Cart::total() }}</div>
+    
 @endsection

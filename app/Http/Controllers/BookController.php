@@ -54,7 +54,8 @@ class BookController extends Controller
     {
         try {
             $book->borrow();
-            return redirect()->back()->with('success', 'Book borrowed successfully.');
+            // return redirect()->back()->with('success', 'Book borrowed successfully.');
+            return redirect()->route('books.index')->with('success', 'Book borrowed successfully.');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }

@@ -22,6 +22,12 @@
             </p>
             <p><strong>Summary:</strong></p>
             <p>{{ $book->summary }}</p>
+            <p>
+                <form action="{{ route('cart.add', $book->id) }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-primary">Add to Cart</button>
+                </form>
+            </p>
         </div>
     </div>
 

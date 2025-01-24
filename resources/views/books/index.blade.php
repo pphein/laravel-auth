@@ -51,9 +51,9 @@
         @endforeach
     </div> -->
 
-    @if (session('status'))
+    @if (session('success'))
         <div class="alert alert-success">
-            {{ session('status') }}
+            {{ session('success') }}
         </div>
     @endif
 
@@ -71,14 +71,14 @@
                 <p>{{ $book->summary }}</p>
                 <p>Price: ${{ $book->price }}</p>
                 <p><strong>Authors:</strong> 
-                            {{ $book->authors->pluck('pen_name')->join(', ') }}
+                    {{ $book->authors->pluck('pen_name')->join(', ') }}
                 </p>
                 <p>
                     <strong>Status:</strong>
                     {{ $book->copy_borrowed }} / {{ $book->copy_availables }}
                 </p>
                 <p>
-                    <!-- @if ($book->canBeBorrowed())
+                    @if ($book->canBeBorrowed())
                         <form action="{{ route('books.borrow', $book->id) }}" method="POST" style="display: inline;">
                             @csrf
                             <button type="submit" class="btn btn-sm btn-success">
@@ -89,7 +89,9 @@
                         <button class="btn btn-sm btn-danger" disabled>
                             Cannot Borrow
                         </button>
-                    @endif -->
+                    @endif
+                </p>
+                <p>
                     <form action="{{ route('cart.add', $book->id) }}" method="POST">
                         @csrf
                         <button type="submit" class="btn btn-primary">Add to Cart</button>
@@ -101,9 +103,9 @@
         @endforeach
     </div>
 
-    <div class="mt-4 flex justify-center">
+    <div class="mt-4 d-flex justify-content-center align-items-center">
         <!-- {{ $books->links('pagination::bootstrap-4') }} -->
-        {{ $books->appends(request()->query())->links('pagination::bootstrap-4') }}
+          {{ $books->appends(request()->query())->links('pagination::bootstrap-4') }}        
     </div>
 
 </div>

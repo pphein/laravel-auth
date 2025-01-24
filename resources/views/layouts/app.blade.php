@@ -15,6 +15,7 @@
 
     <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js','resources/sass/app.scss', 'resources/css/custom.css'])
+        <!-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) -->
     
 </head>
 <body>

@@ -3,24 +3,31 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Cart;
+use App\Models\User;
 use ShoppingCart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class CartController extends Controller
 {
     public function index()
     {
         $cartItems = [];// ShoppingCart::getContent(); // Retrieve all items in the cart
+
+        $user = Auth::user();
+        $cartItems = $user->cart()->get();
+        Log::info("Cart >> ". print_r($cartItems, true));
         return view('carts.index', compact('cartItems'));
     }
 
-    public function addToCart(Request $request, Book $book)
+    public function addToCart(int $bookId)
     {
         $user = Auth::user();
 
         // Check if the book is already in the cart
-        $cartItem = $user->cart()->where('book_id', $book->id)->first();
+        $cartItem = $user->cart()->where('book_id', $bookId)->first();
 
         if ($cartItem) {
             // Increment quantity if already in cart
@@ -28,7 +35,7 @@ class CartController extends Controller
         } else {
             // Add new item to cart
             $user->cart()->create([
-                'book_id' => $book->id,
+                'book_id' => $bookId,
                 'quantity' => 1,
             ]);
         }
