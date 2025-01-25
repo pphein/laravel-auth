@@ -2,6 +2,17 @@
 
 @section('content')
 <div class="container">
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @if (session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
     <h1 class="my-4">{{ $book->title }}</h1>
 
     <div class="row">
