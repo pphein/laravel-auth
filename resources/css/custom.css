@@ -24,3 +24,17 @@
 .book-item h3 {
     margin: 10px 0;
 }
+
+@media (max-width: 310px) {
+    .book-grid {
+        grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    }
+    
+}
+
+@media (max-width: 150px) {
+    .book-grid {
+        grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+    }
+    
+}
