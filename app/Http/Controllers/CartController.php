@@ -26,6 +26,10 @@ class CartController extends Controller
     {
         $user = Auth::user();
 
+        if(!$user) {
+            return back()->with('error', 'Failed to add book to cart. Please login!');
+        }
+
         // Check if the book is already in the cart
         $cartItem = $user->cart()->where('book_id', $bookId)->first();
 
