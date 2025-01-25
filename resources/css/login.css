@@ -149,7 +149,7 @@
       color: green;
   }
 
-  @media (min-width: 430px) and (max-width: 991.98) {
+  @media (min-width: 440px) and (max-width: 991.98) {
     body {
         font-size: 14px;
     }
@@ -158,6 +158,10 @@
         display: flex;
         flex-direction: row;
         height: 100vh;
+    }
+
+    .login-title {
+        font-size: 1.5rex;
     }
     
 }
@@ -176,5 +180,9 @@
       .left-panel {
         border-top-left-radius: 0px !important;
         border-bottom-left-radius: 0px !important;
+    }
+
+    .login-title {
+        font-size: 30px;
     }
 }

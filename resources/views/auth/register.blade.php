@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container vh-100">
+<div class="container min-vh-100">
     <div class="row">
         <!-- <div class="col-md-8">
             <div class="card">
