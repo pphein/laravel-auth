@@ -26,7 +26,7 @@ class BookController extends Controller
                 });
         }
 
-        $books = $query->with('authors')->paginate(6);
+        $books = $query->with('authors')->paginate(12);
 
         return view('books.index', compact('books'));
     }

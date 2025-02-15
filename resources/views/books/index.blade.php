@@ -63,7 +63,7 @@
         </div>
     @endif
 
-    <div class="book-grid">
+    <!-- <div class="book-grid">
         @foreach ($books as $book)
             <div class="book-item">
                 <img src="{{ asset('storage/' . $book->cover_image) }}" alt="{{ $book->title }}">
@@ -100,6 +100,24 @@
                 </p>
                 <a href="{{ route('books.show', $book) }}" class="btn btn-primary">View Details</a>
             </div>
+        @endforeach
+    </div> -->
+    <div class="container grid-container">
+        @foreach($books as $book)
+        <div class="grid-item">
+            <div class="card">
+                <img src="{{ asset('storage/' . $book->cover_image) }}" alt="{{ $book->title }}" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $book->title }}</h5>
+                    <p class="card-text">{{ Str::limit($book->summary, 100) }}</p>
+                    <p>
+                        <strong>Authors:</strong> 
+                        {{ $book->authors->pluck('pen_name')->join(', ') }}
+                    </p>
+                    <a href="{{ route('books.show', $book) }}" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
         @endforeach
     </div>
 

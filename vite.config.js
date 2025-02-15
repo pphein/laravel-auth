@@ -9,7 +9,8 @@ export default defineConfig({
                 'resources/js/app.js',
                 'resources/sass/app.scss',
                 'resources/css/custom.css',
-                'resources/css/login.css'
+                'resources/css/login.css',
+                'resources/css/grid.css'
             ],
             refresh: true,
         }),
