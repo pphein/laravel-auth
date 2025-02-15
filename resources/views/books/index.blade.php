@@ -102,7 +102,7 @@
             </div>
         @endforeach
     </div> -->
-    <div class="container grid-container">
+    <div class="grid-container">
         @foreach($books as $book)
         <div class="grid-item">
             <div class="card">
@@ -121,7 +121,7 @@
         @endforeach
     </div>
 
-    <div class="mt-4 d-flex justify-content-center align-items-center">
+    <div class="mt-4 d-flex justify-content-center align-items-center stick-on-bottom">
         <!-- {{ $books->links('pagination::bootstrap-4') }} -->
           {{ $books->appends(request()->query())->links('pagination::bootstrap-4') }}        
     </div>
