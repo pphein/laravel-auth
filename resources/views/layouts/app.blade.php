@@ -10,8 +10,8 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=sans-serif" rel="stylesheet">
+    <!-- <link rel="dns-prefetch" href="//fonts.bunny.net"> -->
+    <!-- <link href="https://fonts.bunny.net/css?family=sans-serif" rel="stylesheet"> -->
 
     <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js','resources/sass/app.scss', 'resources/css/custom.css', 'resources/css/login.css', 'resources/css/grid.css'])
