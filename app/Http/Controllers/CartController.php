@@ -4,21 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\Cart;
-use App\Models\User;
-use ShoppingCart;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use ShoppingCart;
 
 class CartController extends Controller
 {
     public function index()
     {
-        $cartItems = [];// ShoppingCart::getContent(); // Retrieve all items in the cart
+        $cartItems = []; // ShoppingCart::getContent(); // Retrieve all items in the cart
 
         $user = Auth::user();
         $cartItems = $user->cart()->get();
-        Log::info("Cart >> ". print_r($cartItems, true));
+        Log::info('Cart >> '.print_r($cartItems, true));
+
         return view('carts.index', compact('cartItems'));
     }
 
@@ -26,7 +25,7 @@ class CartController extends Controller
     {
         $user = Auth::user();
 
-        if(!$user) {
+        if (! $user) {
             return back()->with('error', 'Failed to add book to cart. Please login!');
         }
 
@@ -50,15 +49,14 @@ class CartController extends Controller
     public function viewCart()
     {
         $cartItems = Auth::user()->cart()->with('book')->get();
+
         return view('cart.index', compact('cartItems'));
     }
 
     public function removeFromCart(ShoppingCart $cart)
     {
         $cart->delete();
+
         return back()->with('success', 'Book removed from cart!');
     }
-
-
-
 }

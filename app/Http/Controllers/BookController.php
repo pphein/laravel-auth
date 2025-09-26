@@ -22,7 +22,7 @@ class BookController extends Controller
                 ->orWhere('summary', 'like', "%{$search}%")
                 ->orWhereHas('authors', function ($q) use ($search) {
                     $q->where('name', 'like', "%{$search}%")
-                    ->orWhere('pen_name', 'like', "%{$search}%");
+                        ->orWhere('pen_name', 'like', "%{$search}%");
                 });
         }
 
@@ -35,13 +35,14 @@ class BookController extends Controller
     public function show(Book $book)
     {
         $book->load('authors'); // Eager load authors
+
         return view('books.show', compact('book'));
     }
 
     public function toggleCanBorrow(Book $book)
     {
         if ($book->copy_availables > 0) {
-            $book->can_borrow = !$book->can_borrow;
+            $book->can_borrow = ! $book->can_borrow;
             $book->save();
 
             return redirect()->route('books.index')->with('status', 'Can Borrow status updated successfully!');
@@ -54,6 +55,7 @@ class BookController extends Controller
     {
         try {
             $book->borrow();
+
             // return redirect()->back()->with('success', 'Book borrowed successfully.');
             return redirect()->route('books.index')->with('success', 'Book borrowed successfully.');
         } catch (\Exception $e) {
@@ -64,6 +66,7 @@ class BookController extends Controller
     public function return(Book $book)
     {
         $book->returnBook();
+
         return redirect()->back()->with('success', 'Book returned successfully.');
     }
 
@@ -81,5 +84,4 @@ class BookController extends Controller
 
         return redirect()->back()->with('success', 'Book added to borrow list.');
     }
-
 }

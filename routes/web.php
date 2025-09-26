@@ -6,11 +6,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 use App\Http\Controllers\BookController;
-
 use App\Http\Controllers\CartController;
-
 
 Route::get('/', function () {
     return view('welcome');
@@ -29,10 +26,6 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/carts', [CartController::class, 'index'])->name('cart.index');
 Route::post('/carts/add/{bookId}', [CartController::class, 'addToCart'])->name('cart.add');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 

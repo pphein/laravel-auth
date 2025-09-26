@@ -16,7 +16,7 @@ class Book extends Model
         'isbn',
         'copy_availables',
         'copy_borrowed',
-        'cover_image'
+        'cover_image',
     ];
 
     /**
@@ -34,7 +34,7 @@ class Book extends Model
 
     public function borrow()
     {
-        if (!$this->canBeBorrowed()) {
+        if (! $this->canBeBorrowed()) {
             throw new \Exception('This book cannot be borrowed.');
         }
 
@@ -52,5 +52,4 @@ class Book extends Model
     {
         return $this->hasMany(Cart::class);
     }
-
 }

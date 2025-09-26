@@ -2,9 +2,9 @@
 
 namespace App\Console\Commands;
 
+use App\Imports\BooksImport;
 use Illuminate\Console\Command;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Imports\BooksImport;
 
 class ImportBooks extends Command
 {
@@ -29,8 +29,9 @@ class ImportBooks extends Command
     {
         $file = $this->argument('file');
 
-        if (!file_exists($file)) {
+        if (! file_exists($file)) {
             $this->error("File not found: {$file}");
+
             return;
         }
 
@@ -38,7 +39,7 @@ class ImportBooks extends Command
             Excel::import(new BooksImport, $file);
             $this->info('Books imported successfully!');
         } catch (\Exception $e) {
-            $this->error('An error occurred during import: ' . $e->getMessage());
+            $this->error('An error occurred during import: '.$e->getMessage());
         }
     }
 }
